@@ -6,9 +6,6 @@ USER root
 RUN apt-get update
 RUN apt-get install -y git-crypt
 
-#export NVM_DIR="/home/coder/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
-
 # Install azcure cli
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
@@ -17,6 +14,13 @@ RUN az extension add --name azure-devops
 
 # Install jq
 RUN apt-get install -y jq
+
+# Install github cli
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+RUN apt-get install -y software-properties-common
+RUN apt-add-repository https://cli.github.com/packages
+RUN apt update
+RUN apt install gh
 
 ADD run.sh .
 RUN chmod +x ./run.sh
