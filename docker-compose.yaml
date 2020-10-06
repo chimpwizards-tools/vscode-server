@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  audit:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: chimpwizards/vscode-server
+    ports:
+        - '8080:8080'   
+    environment:
+      PASSWORD: 'admin'
