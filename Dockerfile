@@ -73,8 +73,8 @@ ADD init.sh /home/coder/
 RUN chmod +x /home/coder/run.sh
 RUN chmod +x /home/coder/init.sh
 
-ADD .npmrc /home/coder
-RUN chown -R 1000:1000 .npmrc
+# ADD .npmrc /home/coder
+# RUN chown -R 1000:1000 .npmrc
 
 USER coder
 RUN git clone https://github.com/pyenv/pyenv.git /home/coder/.pyenv
