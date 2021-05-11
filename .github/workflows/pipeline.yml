@@ -26,10 +26,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build
-        uses: chimpwizards-pipeline/docker-compose-build@v1.0.6
+        uses: chimpwizardsdevops/docker-compose-build@v1.0.6
 
       - name: Publish
-        uses: chimpwizards-pipeline/docker-compose-publish@v1.0.2     
+        uses: chimpwizardsdevops/docker-compose-publish@v1.0.2     
         
         env: # Or as an environment variable
           DOCKERHUB_USERNAME: ndruwizz
