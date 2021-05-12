@@ -8,6 +8,9 @@ services:
     image: chimpwizardstools/vscode-fat-ide
     ports:
         - '8080:8080'   
-    entrypoint: bash
+    #entrypoint: bash
     environment:
       PASSWORD: 'admin'
+      STARTUP_SCRIPT: 'https://gist.githubusercontent.com/ndruwizz/17819ffefe1bf6a1dc640d57a9103483/raw/43f413eb7b1be0206e441f36a13237821059847a/enviornment-initialization'
+    volumes: 
+      - "$PWD:/var/app"

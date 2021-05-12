@@ -73,8 +73,11 @@ ADD init.sh /home/coder/
 RUN chmod +x /home/coder/run.sh
 RUN chmod +x /home/coder/init.sh
 
-# ADD .npmrc /home/coder
-# RUN chown -R 1000:1000 .npmrc
+# Install npm & node
+RUN apt install -y nodejs npm
+
+# Install NPM dependencies
+RUN npm i -g  @chimpwizards/wand yamljs
 
 USER coder
 RUN git clone https://github.com/pyenv/pyenv.git /home/coder/.pyenv
@@ -94,8 +97,6 @@ RUN echo 'export NVM_DIR="/home/coder/.nvm"' >> /home/coder/.bashrc
 RUN ls -la /home/coder/.nvm
 #SHELL ["/bin/bash", "-c", "-l"]
 RUN /bin/bash -c ". /home/coder/.nvm/nvm.sh && nvm install 10"
-#RUN /bin/bash -c "pwd"
-#     npm i -g  @chimpwizards/wand
 
 # Install NPM dependencies
 # RUN npm i -g  @chimpwizards/wand csvtojson xml2json-cli yamljs
