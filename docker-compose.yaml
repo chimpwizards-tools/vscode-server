@@ -1,12 +1,13 @@
 version: '3'
 
 services:
-  audit:
+  vscode:
     build: 
       context: .
       dockerfile: Dockerfile
     image: chimpwizardstools/vscode-fat-ide
     ports:
         - '8080:8080'   
+    entrypoint: bash
     environment:
       PASSWORD: 'admin'

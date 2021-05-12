@@ -45,10 +45,10 @@ RUN apt-get install -y bc
 
 #Install HELM cli
 RUN curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
-RUN apt-get install apt-transport-https --yes
-RUN "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+RUN  apt-get install apt-transport-https --yes
+RUN echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 RUN apt-get update
-RUN apt-get install -y helm
+RUN apt-get install helm
 
 # Install AZ CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
@@ -95,9 +95,6 @@ RUN ls -la /home/coder/.nvm
 #SHELL ["/bin/bash", "-c", "-l"]
 RUN /bin/bash -c ". /home/coder/.nvm/nvm.sh && nvm install 10"
 #RUN /bin/bash -c "pwd"
-# RUN npm i -g @quicksuite/cli && \
-#     qs init && \
-#     qs init --extras && \
 #     npm i -g  @chimpwizards/wand
 
 # Install NPM dependencies
