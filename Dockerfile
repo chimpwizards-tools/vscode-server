@@ -79,6 +79,9 @@ RUN apt install -y nodejs npm
 # Install NPM dependencies
 RUN npm i -g  @chimpwizards/wand yamljs
 
+# Install python dependencies
+RUN apt install python3-pip
+
 USER coder
 RUN git clone https://github.com/pyenv/pyenv.git /home/coder/.pyenv
 RUN echo 'export PYENV_ROOT="$HOME/.pyenv"' >> /home/coder/.bashrc
