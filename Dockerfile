@@ -84,7 +84,7 @@ RUN apt install python3-pip
 
 USER coder
 RUN git clone https://github.com/pyenv/pyenv.git /home/coder/.pyenv
-RUN echo 'export PYENV_ROOT="$HOME/.pyenv"' >> /home/coder/.bashrc
+RUN echo 'export PYENV_ROOT="/home/coder/.pyenv"' >> /home/coder/.bashrc
 RUN echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> /home/coder/.bashrc
 RUN echo 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi' >> /home/coder/.bashrc
 # RUN exec "$SHELL" && eval "$(pyenv init -)" && \
